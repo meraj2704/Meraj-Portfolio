@@ -7,7 +7,7 @@ import {
 } from "../auth/tokenManager";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "https://meraj-portfolio-eight.vercel.app/",
 });
 
 axiosInstance.interceptors.request.use(
