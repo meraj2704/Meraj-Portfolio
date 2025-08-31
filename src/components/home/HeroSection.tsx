@@ -563,23 +563,6 @@ export function HeroSection() {
             </motion.div>
           </motion.div>
         </motion.div>
-
-        {/* Animated Scroll Indicator */}
-        {/* <motion.div
-          className="fixed bottom-10 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2, duration: 0.8 }}
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="flex flex-col items-center text-blue-500/70"
-          >
-            <span className="text-sm mb-2 font-medium">Scroll to explore</span>
-            <ChevronDown size={28} />
-          </motion.div>
-        </motion.div> */}
         <ScrollIndicator />
       </div>
     </motion.section>

@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 import fs from "fs/promises";
 import path from "path";
 import { prisma } from "@/src/lib/prisma";
+import { supabase } from "@/src/lib/supabase";
 
 export async function GET() {
   try {
@@ -56,26 +57,42 @@ export async function POST(request: NextRequest) {
 
     for (const image of images) {
       if (image.size > 0 && image.name !== "undefined") {
+        // Check file size (50MB limit)
+        if (image.size > 50 * 1024 * 1024) {
+          return NextResponse.json(
+            { error: `File ${image.name} exceeds the 50MB size limit` },
+            { status: 400 }
+          );
+        }
+
         const bytes = await image.arrayBuffer();
         const buffer = Buffer.from(bytes);
 
-        // Create uploads directory if it doesn't exist
-        const uploadsDir = path.join(process.cwd(), "public", "uploads");
-        try {
-          await fs.access(uploadsDir);
-        } catch {
-          await fs.mkdir(uploadsDir, { recursive: true });
-        }
-
         // Generate unique filename
         const timestamp = Date.now();
-        const ext = path.extname(image.name);
-        const filename = `${slug}-${timestamp}${ext}`;
-        const filepath = path.join(uploadsDir, filename);
+        const ext = image.name.split(".").pop();
+        const filename = `${slug}-${timestamp}.${ext}`;
+        const filePath = `projects/${filename}`;
 
-        // Save file
-        await fs.writeFile(filepath, buffer);
-        imageUrls.push(`/uploads/${filename}`);
+        // Upload to Supabase Storage
+        const { data, error } = await supabase.storage
+          .from("project-images")
+          .upload(filePath, buffer, {
+            contentType: image.type,
+            upsert: false,
+          });
+
+        if (error) {
+          console.error("Supabase upload error:", error);
+          throw new Error(`Failed to upload image: ${error.message}`);
+        }
+
+        // Get public URL
+        const {
+          data: { publicUrl },
+        } = supabase.storage.from("project-images").getPublicUrl(filePath);
+
+        imageUrls.push(publicUrl);
       }
     }
     const now = new Date();
