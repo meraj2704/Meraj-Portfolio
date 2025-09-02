@@ -30,8 +30,11 @@ import {
   Cloud,
   GitBranch,
   ArrowRight,
+  GitBranchIcon,
 } from "lucide-react";
 import ScrollIndicator from "./ScrollIndicator";
+import { FaGithub, FaHackerrank, FaReact } from "react-icons/fa6";
+import { SiCodechef, SiExpress, SiLeetcode, SiNestjs, SiNextdotjs, SiPostgresql } from "react-icons/si";
 
 const HTML_TAGS = [
   "<div>",
@@ -53,12 +56,12 @@ const HTML_TAGS = [
 ];
 
 const FLOATING_ICONS = [
-  { icon: <Code size={20} />, color: "text-blue-400" },
-  { icon: <Server size={20} />, color: "text-green-400" },
-  { icon: <Cpu size={20} />, color: "text-purple-400" },
-  { icon: <Database size={20} />, color: "text-yellow-400" },
-  { icon: <Cloud size={20} />, color: "text-cyan-400" },
-  { icon: <GitBranch size={20} />, color: "text-pink-400" },
+  { icon: <SiExpress size={20} />, color: "text-blue-400" },
+  { icon: <FaReact size={20} />, color: "text-green-400" },
+  { icon: <SiNextdotjs size={20} />, color: "text-purple-400" },
+  { icon: <SiNestjs size={20} />, color: "text-yellow-400" },
+  { icon: <SiPostgresql size={20} />, color: "text-cyan-400" },
+  { icon: <FaGithub size={20} />, color: "text-pink-400" },
 ];
 
 export function HeroSection() {
@@ -81,7 +84,7 @@ export function HeroSection() {
       "Next.js",
       "Nest.js",
       "PostgreSQL",
-      "MongoDB"
+      "Git",
     ],
     currentRole: "Jr. Full Stack Developer at ATI Limited",
     yearsExperience: "1.5+ years",
@@ -90,10 +93,11 @@ export function HeroSection() {
     phone: "+8801684088348",
     resumeUrl: "/resume-meraj-hossain.pdf",
     socialLinks: {
-      github: "https://github.com/merajhossain",
-      linkedin: "https://linkedin.com/in/merajhossain",
-      twitter: "https://twitter.com/merajhossain",
-      instagram: "https://instagram.com/merajhossain",
+      github: "https://github.com/meraj2704",
+      linkedin: "https://www.linkedin.com/in/meraj-hossain-6566b8231/",
+      hackerRank: "https://www.hackerrank.com/profile/mh1669101",
+      codeChef: "https://www.codechef.com/users/ije_2704",
+      leetCode: "https://leetcode.com/u/r0TFSzt8Ho",
     },
   };
 
@@ -294,28 +298,6 @@ export function HeroSection() {
         ))}
       </AnimatePresence>
 
-      {/* Floating Tech Icons */}
-      {/* <AnimatePresence>
-        {floatingIcons.map(({ id, x, y, icon, color }) => (
-          <motion.div
-            key={id}
-            initial={{ x, y, opacity: 0, scale: 0 }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              y: y - 20,
-              rotate: [0, 5, 0],
-              transition: { duration: 1.5, ease: "easeOut" },
-            }}
-            exit={{ opacity: 0, scale: 0 }}
-            className={`fixed pointer-events-none ${color} opacity-60`}
-            style={{ left: x, top: y, zIndex: 5 }}
-          >
-            {icon}
-          </motion.div>
-        ))}
-      </AnimatePresence> */}
-
       {/* Main Content */}
       <div className="container px-4 md:px-6 max-w-6xl space-y-8 z-20 relative">
         {/* Vertical Social Links */}
@@ -337,13 +319,17 @@ export function HeroSection() {
                 href: personalInfo.socialLinks.linkedin,
               },
               {
-                icon: <Twitter size={22} />,
-                href: personalInfo.socialLinks.twitter,
+                icon: <FaHackerrank size={22} />,
+                href: personalInfo.socialLinks.hackerRank,
               },
               {
-                icon: <Instagram size={22} />,
-                href: personalInfo.socialLinks.instagram,
+                icon: <SiCodechef size={22} />,
+                href: personalInfo.socialLinks.codeChef,
               },
+              {
+                icon: <SiLeetcode size={22} />,
+                href: personalInfo.socialLinks.leetCode,
+              }
             ].map((social, index) => (
               <motion.a
                 key={index}
