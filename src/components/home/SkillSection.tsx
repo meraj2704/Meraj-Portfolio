@@ -6,11 +6,10 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import { Card, CardTitle } from "../ui/card";
-import Image from "next/image";
 import { useRef } from "react";
 import { FaNodeJs } from "react-icons/fa6";
 import { FaReact } from "react-icons/fa";
-import { SiNextdotjs } from "react-icons/si";
+import { SiNestjs, SiNextdotjs } from "react-icons/si";
 import { SiExpress } from "react-icons/si";
 import { BiLogoPostgresql } from "react-icons/bi";
 import { FaGithub } from "react-icons/fa";
@@ -57,7 +56,8 @@ export function SkillsSection() {
   const hoverEffect = {
     scale: 1.05,
     y: -8,
-    boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+    boxShadow:
+      "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
     transition: {
       type: "spring" as const,
       stiffness: 400,
@@ -87,15 +87,7 @@ export function SkillsSection() {
       accentColor: "from-amber-500 to-yellow-500",
     },
     {
-      icon: (
-        <Image
-          src="/nestjs-icon.svg"
-          width={40}
-          height={40}
-          alt="Nest.js"
-          className="mb-3"
-        />
-      ),
+      icon: <SiNestjs className="h-10 w-10 text-red-500 mb-3"/>,
       title: "Nest.js",
       accentColor: "from-red-500 to-pink-500",
     },
@@ -217,10 +209,7 @@ export function SkillsSection() {
         >
           {icons.map((skill, index) => (
             <motion.div key={index} variants={itemVariants} className="h-full">
-              <motion.div
-                whileHover={hoverEffect}
-                className="h-full"
-              >
+              <motion.div whileHover={hoverEffect} className="h-full">
                 <Card className="bg-card/80 backdrop-blur-md border border-border/50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all h-full flex flex-col items-center justify-center relative overflow-hidden group">
                   {/* Accent gradient border on hover */}
                   <div
