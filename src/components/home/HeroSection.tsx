@@ -34,7 +34,14 @@ import {
 } from "lucide-react";
 import ScrollIndicator from "./ScrollIndicator";
 import { FaGithub, FaHackerrank, FaReact } from "react-icons/fa6";
-import { SiCodechef, SiExpress, SiLeetcode, SiNestjs, SiNextdotjs, SiPostgresql } from "react-icons/si";
+import {
+  SiCodechef,
+  SiExpress,
+  SiLeetcode,
+  SiNestjs,
+  SiNextdotjs,
+  SiPostgresql,
+} from "react-icons/si";
 
 const HTML_TAGS = [
   "<div>",
@@ -302,13 +309,13 @@ export function HeroSection() {
       <div className="container px-4 md:px-6 max-w-6xl space-y-8 z-20 relative">
         {/* Vertical Social Links */}
         <motion.div
-          className="absolute left-6 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-8"
+          className="absolute bottom-4 md:left-6 md:top-20 md:-translate-y-1/2  lg:flex lg:flex-col items-center gap-8"
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.8, duration: 0.7 }}
         >
-          <div className="w-px h-40 bg-gradient-to-b from-accent-primary to-transparent" />
-          <div className="flex flex-col gap-5">
+          <div className=" hidden md:block w-px h-40 bg-gradient-to-b from-accent-primary to-transparent" />
+          <div className="flex lg:flex-col gap-5">
             {[
               {
                 icon: <Github size={22} />,
@@ -329,7 +336,7 @@ export function HeroSection() {
               {
                 icon: <SiLeetcode size={22} />,
                 href: personalInfo.socialLinks.leetCode,
-              }
+              },
             ].map((social, index) => (
               <motion.a
                 key={index}
@@ -346,7 +353,7 @@ export function HeroSection() {
               </motion.a>
             ))}
           </div>
-          <div className="w-px h-40 bg-gradient-to-t from-accent-primary to-transparent" />
+          <div className="w-px  hidden md:block h-40 bg-gradient-to-t from-accent-primary to-transparent" />
         </motion.div>
 
         {/* Hero Content */}
@@ -518,7 +525,7 @@ export function HeroSection() {
             whileInView="visible"
             viewport={{ once: false }}
             variants={containerVariants}
-            className="flex flex-wrap justify-center gap-8 pt-16 text-muted-foreground text-sm md:text-base"
+            className="flex flex-wrap justify-center gap-4 md:gap-8 pb-4 md:pb-0  text-muted-foreground text-sm md:text-base"
           >
             <motion.a
               href={`mailto:${personalInfo.email}`}
