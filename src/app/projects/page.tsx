@@ -2,10 +2,10 @@
 
 import { ProjectsFilter } from "@/src/components/projects/ProjectsFilter";
 import { ProjectsGrid } from "@/src/components/projects/ProjectsGrid";
-import { useFetchData } from "@/src/hooks/useApi";
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
+import { projectsData } from "@/src/lib/projects-data"; // ✅ local data
 
 export default function ProjectsPage() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -13,26 +13,23 @@ export default function ProjectsPage() {
     []
   );
 
-  const {
-    data: projects = [],
-    isLoading,
-    isError,
-  } = useFetchData(["projects"], "/api/projects");
+  // ✅ Use local projects instead of API
+  const projects = projectsData;
 
   const filteredProjects = useMemo(() => {
     let filtered = projects.filter(
-      (project: any) =>
+      (project) =>
         project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         project.overview.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        project.Technology?.some((t: any) =>
+        project.Technology?.some((t) =>
           t.name.toLowerCase().includes(searchTerm.toLowerCase())
         )
     );
 
     if (selectedTechnologies.length > 0) {
-      filtered = filtered.filter((project: any) =>
+      filtered = filtered.filter((project) =>
         selectedTechnologies.every((tech) =>
-          project.Technology?.some((t: any) => t.name === tech)
+          project.Technology?.some((t) => t.name === tech)
         )
       );
     }
@@ -40,11 +37,10 @@ export default function ProjectsPage() {
     return filtered;
   }, [searchTerm, selectedTechnologies, projects]);
 
-  // Extract all unique technologies for filter
   const allTechnologies = useMemo(() => {
     const techSet = new Set<string>();
-    projects.forEach((project: any) => {
-      project.Technology?.forEach((tech: any) => {
+    projects.forEach((project) => {
+      project.Technology?.forEach((tech) => {
         techSet.add(tech.name);
       });
     });
@@ -79,92 +75,71 @@ export default function ProjectsPage() {
           </p>
         </motion.div>
 
-        {isLoading ? (
-          <div className="text-center">
-            <div className="inline-flex items-center">
-              <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-accent-primary mr-3"></div>
-              <span className="text-muted-foreground">Loading projects...</span>
-            </div>
-          </div>
-        ) : isError ? (
-          <motion.div
-            className="text-center p-8 rounded-2xl bg-destructive/10 border border-destructive/20"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-          >
-            <p className="text-destructive">
-              Failed to load projects. Please try again later.
-            </p>
-          </motion.div>
-        ) : (
-          <>
-            {/* Projects Filter */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="mb-12"
-            >
-              <ProjectsFilter
-                searchTerm={searchTerm}
-                setSearchTerm={setSearchTerm}
-                selectedTechnologies={selectedTechnologies}
-                setSelectedTechnologies={setSelectedTechnologies}
-              />
-            </motion.div>
+        {/* Projects Filter */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="mb-12"
+        >
+          <ProjectsFilter
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            selectedTechnologies={selectedTechnologies}
+            setSelectedTechnologies={setSelectedTechnologies}
+          />
+        </motion.div>
 
-            {/* Projects Grid */}
+        {/* Projects Grid */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+        >
+          {filteredProjects.length === 0 ? (
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
+              className="text-center p-12 rounded-2xl bg-muted/30 border border-border/50"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
             >
-              {filteredProjects.length === 0 ? (
-                <motion.div
-                  className="text-center p-12 rounded-2xl bg-muted/30 border border-border/50"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
+              <div className="text-muted-foreground mb-4">
+                <Sparkles className="h-12 w-12 mx-auto opacity-50" />
+              </div>
+              <h3 className="text-lg font-semibold text-foreground mb-2">
+                No projects found
+              </h3>
+              <p className="text-muted-foreground">
+                {searchTerm || selectedTechnologies.length > 0
+                  ? "Try adjusting your search or filter criteria."
+                  : "No projects available at the moment."}
+              </p>
+              {(searchTerm || selectedTechnologies.length > 0) && (
+                <button
+                  onClick={() => {
+                    setSearchTerm("");
+                    setSelectedTechnologies([]);
+                  }}
+                  className="mt-4 text-accent-primary hover:text-accent-secondary transition-colors"
                 >
-                  <div className="text-muted-foreground mb-4">
-                    <Sparkles className="h-12 w-12 mx-auto opacity-50" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">
-                    No projects found
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {searchTerm || selectedTechnologies.length > 0
-                      ? "Try adjusting your search or filter criteria."
-                      : "No projects available at the moment."}
-                  </p>
-                  {(searchTerm || selectedTechnologies.length > 0) && (
-                    <button
-                      onClick={() => {
-                        setSearchTerm("");
-                        setSelectedTechnologies([]);
-                      }}
-                      className="mt-4 text-accent-primary hover:text-accent-secondary transition-colors"
-                    >
-                      Clear all filters
-                    </button>
-                  )}
-                </motion.div>
-              ) : (
-                <ProjectsGrid projects={filteredProjects} />
+                  Clear all filters
+                </button>
               )}
             </motion.div>
+          ) : (
+            <ProjectsGrid projects={filteredProjects} />
+          )}
+        </motion.div>
 
-            {/* Results count */}
-            <motion.div
-              className="text-center mt-12 text-muted-foreground text-sm"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-            >
-              Showing {filteredProjects.length} of {projects.length} projects
-              {(searchTerm || selectedTechnologies.length > 0) && " (filtered)"}
-            </motion.div>
-          </>
-        )}
+        {/* Results count */}
+        <motion.div
+          className="text-center mt-12 text-muted-foreground text-sm"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
+        >
+          Showing {filteredProjects.length} of {projects.length} projects
+          {(searchTerm || selectedTechnologies.length > 0) && " (filtered)"}
+        </motion.div>
       </div>
     </motion.main>
   );

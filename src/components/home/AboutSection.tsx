@@ -10,16 +10,7 @@ import { ReactElement, useRef, useState } from "react";
 import {
   Code,
   Server,
-  Cpu,
-  Database,
-  Cloud,
-  GitBranch,
   Sparkles,
-  BookOpen,
-  BarChart3,
-  Users,
-  Feather,
-  GraduationCap,
 } from "lucide-react";
 import { FaDocker, FaNodeJs, FaReact } from "react-icons/fa6";
 import {

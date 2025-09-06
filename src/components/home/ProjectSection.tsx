@@ -8,11 +8,9 @@ import {
 import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { useRef } from "react";
-import { getAllProjectsData } from "@/src/lib/projects-data";
 import { ProjectCard } from "../project-card";
-import { Button } from "../ui/button";
 import { useFetchData } from "@/src/hooks/useApi";
-import { Project } from "@/src/generated/prisma";
+import { projectsData } from "@/src/lib/projects-data"; // ✅ import local data
 
 export function ProjectsSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -26,14 +24,8 @@ export function ProjectsSection() {
   const opacity = useTransform(scrollYProgress, [0.1, 0.3], [0, 1]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [0.95, 1]);
 
-  const {
-    data: projects = [],
-    isLoading,
-    isError,
-  } = useFetchData(["projects"], "/api/projects");
-
-  const featuredProjects = projects
-    .filter((p: any) => p.featured === true)
+  const featuredProjects = projectsData
+    .filter((p) => p.featured)
     .slice(0, 3);
 
   // Animation variants

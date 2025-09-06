@@ -3,53 +3,26 @@
 import { notFound, useParams } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
-import { CarouselApi } from "@/src/components/ui/carousel";
+import { projectsData } from "@/src/lib/projects-data";
 import { Button } from "@/src/components/ui/button";
 import { ProjectCarousel } from "@/src/components/projects/ProjectCarousel";
 import { ProjectThumbnails } from "@/src/components/projects/ProjectThumbnail";
 import { ProjectDetails } from "@/src/components/projects/ProjectDetails";
 import { ProjectLinks } from "@/src/components/projects/ProjectLink";
-import { useFetchData } from "@/src/hooks/useApi";
 import { ArrowLeft, Sparkles } from "lucide-react";
 
 export default function ProjectDetailsPage() {
   const params = useParams();
-  const [api, setApi] = useState<CarouselApi>();
+  const [api, setApi] = useState<any>();
   const [current, setCurrent] = useState(0);
 
-  const {
-    data: project,
-    isLoading,
-    isError,
-  } = useFetchData([`project=${params.id}`], `/api/projects/${params.id}`);
+  // ✅ Find project locally
+  const project = projectsData.find(
+    (p) => String(p.id) === String(params.id)
+  );
 
-  if (isLoading)
-    return (
-      <div className="flex-1 py-16 md:py-24">
-        <div className="container px-4 md:px-6 max-w-6xl mx-auto">
-          <div className="animate-pulse">
-            <div className="h-8 w-32 bg-muted rounded mb-8"></div>
-            <div className="h-12 bg-muted rounded mb-8"></div>
-            <div className="h-96 bg-muted rounded mb-8"></div>
-            <div className="grid md:grid-cols-3 gap-12">
-              <div className="md:col-span-2 space-y-4">
-                <div className="h-6 bg-muted rounded"></div>
-                <div className="h-6 bg-muted rounded"></div>
-                <div className="h-6 bg-muted rounded w-3/4"></div>
-              </div>
-              <div className="md:col-span-1 space-y-4">
-                <div className="h-10 bg-muted rounded"></div>
-                <div className="h-10 bg-muted rounded"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-
-  if (isError || !project) return notFound();
+  if (!project) return notFound();
 
   return (
     <motion.main
@@ -134,7 +107,7 @@ export default function ProjectDetailsPage() {
           <div className="md:col-span-2">
             <ProjectDetails
               longDescription={project.longDescription}
-              technologies={project.Technology.map((t: any) => t.name)}
+              technologies={project.Technology?.map((t) => t.name)}
             />
           </div>
 
@@ -193,8 +166,6 @@ export default function ProjectDetailsPage() {
             )}
           </div>
         </motion.div>
-
-        {/* Related projects or next project navigation could be added here */}
       </div>
     </motion.main>
   );
