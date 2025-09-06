@@ -42,6 +42,7 @@ import {
   SiNextdotjs,
   SiPostgresql,
 } from "react-icons/si";
+import { ResumePreview } from "./ResumePreview";
 
 const HTML_TAGS = [
   "<div>",
@@ -98,7 +99,7 @@ export function HeroSection() {
     location: "Dhaka, Bangladesh",
     email: "merajhossain15901@gmail.com",
     phone: "+8801684088348",
-    resumeUrl: "/resume-meraj-hossain.pdf",
+    resumeUrl: "/Meraj_Resume.pdf",
     socialLinks: {
       github: "https://github.com/meraj2704",
       linkedin: "https://www.linkedin.com/in/meraj-hossain-6566b8231/",
@@ -454,27 +455,27 @@ export function HeroSection() {
                   ease: "easeInOut",
                 }}
               />
-<div className="relative">
-  <p className="text-xl md:text-2xl text-foreground leading-relaxed font-light relative z-10">
-    <TypingEffect
-      text={`Crafting digital experiences with ${personalInfo.yearsExperience} years of expertise. Specializing in modern full-stack development, I transform ideas into scalable, performant applications that users love.`}
-      speed={40}
-      delay={600}
-    />
-    <span className="ml-1 inline-block w-2 h-8 bg-accent-primary animate-pulse rounded-full" />
-  </p>
-  <motion.div 
-    className="absolute inset-0 bg-gradient-to-r from-accent-primary/5 to-accent-secondary/5 rounded-xl -z-0"
-    animate={{
-      backgroundPosition: ['0% 0%', '100% 100%'],
-    }}
-    transition={{
-      duration: 10,
-      repeat: Infinity,
-      repeatType: "reverse",
-    }}
-  />
-</div>
+              <div className="relative">
+                <p className="text-xl md:text-2xl text-foreground leading-relaxed font-light relative z-10">
+                  <TypingEffect
+                    text={`Crafting digital experiences with ${personalInfo.yearsExperience} years of expertise. Specializing in modern full-stack development, I transform ideas into scalable, performant applications that users love.`}
+                    speed={40}
+                    delay={600}
+                  />
+                  <span className="ml-1 inline-block w-2 h-8 bg-accent-primary animate-pulse rounded-full" />
+                </p>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-accent-primary/5 to-accent-secondary/5 rounded-xl -z-0"
+                  animate={{
+                    backgroundPosition: ["0% 0%", "100% 100%"],
+                  }}
+                  transition={{
+                    duration: 10,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                  }}
+                />
+              </div>
             </div>
           </motion.div>
 
@@ -514,16 +515,7 @@ export function HeroSection() {
             </motion.div>
 
             <motion.div variants={itemVariants} className="flex justify-center">
-              <a href={personalInfo.resumeUrl} download>
-                <Button
-                  variant="ghost"
-                  size="lg"
-                  className="px-10 py-7 text-lg font-medium rounded-2xl text-foreground hover:text-accent-primary transition-all group border border-transparent hover:border-accent-primary/20"
-                >
-                  <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
-                  Resume
-                </Button>
-              </a>
+              <ResumePreview resumeUrl={personalInfo.resumeUrl} />
             </motion.div>
           </motion.div>
 

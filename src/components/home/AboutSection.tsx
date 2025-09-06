@@ -7,30 +7,38 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import { ReactElement, useRef, useState } from "react";
-import { 
-  Code, 
-  Server, 
-  Cpu, 
-  Database, 
-  Cloud, 
-  GitBranch, 
-  Sparkles, 
+import {
+  Code,
+  Server,
+  Cpu,
+  Database,
+  Cloud,
+  GitBranch,
+  Sparkles,
   BookOpen,
   BarChart3,
   Users,
   Feather,
-  GraduationCap
+  GraduationCap,
 } from "lucide-react";
+import { FaDocker, FaNodeJs, FaReact } from "react-icons/fa6";
+import {
+  SiExpress,
+  SiNestjs,
+  SiNextdotjs,
+  SiPostgresql,
+  SiTypescript,
+} from "react-icons/si";
 
 const techIcons: Record<string, ReactElement> = {
-  "Node.js": <Code className="h-4 w-4" />,
-  TypeScript: <Code className="h-4 w-4" />,
-  React: <Cpu className="h-4 w-4" />,
-  "Next.js": <Server className="h-4 w-4" />,
-  "Nest.js": <Server className="h-4 w-4" />,
-  AWS: <Cloud className="h-4 w-4" />,
-  GraphQL: <Database className="h-4 w-4" />,
-  Docker: <Database className="h-4 w-4" />,
+  "Node.js": <FaNodeJs className="h-4 w-4" />,
+  TypeScript: <SiTypescript className="h-4 w-4" />,
+  React: <FaReact className="h-4 w-4" />,
+  "Next.js": <SiNextdotjs className="h-4 w-4" />,
+  "Nest.js": <SiNestjs className="h-4 w-4" />,
+  "Express.js": <SiExpress className="h-4 w-4" />,
+  PostgreSql: <SiPostgresql className="h-4 w-4" />,
+  Docker: <FaDocker className="h-4 w-4" />,
 };
 
 export function AboutSection() {
@@ -78,7 +86,7 @@ export function AboutSection() {
       opacity: 1,
       rotate: 0,
       transition: {
-        type: "spring" as const ,
+        type: "spring" as const,
         damping: 15,
         stiffness: 100,
       },
@@ -195,7 +203,7 @@ export function AboutSection() {
 
       <div className="container px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         {/* Section header */}
-        <motion.div 
+        <motion.div
           className="text-center mb-16 md:mb-20"
           variants={itemVariants}
         >
@@ -207,7 +215,8 @@ export function AboutSection() {
             About Me
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Discover my journey, skills, and passion for creating exceptional digital experiences
+            Discover my journey, skills, and passion for creating exceptional
+            digital experiences
           </p>
         </motion.div>
 
@@ -220,7 +229,7 @@ export function AboutSection() {
           >
             <div className="relative z-10">
               <div className="absolute -inset-4 bg-gradient-to-r from-accent/20 to-primary/20 rounded-3xl blur-lg opacity-70 group-hover:opacity-100 transition-opacity duration-300" />
-              
+
               <div className="relative rounded-3xl overflow-hidden border border-border/50 shadow-2xl bg-gradient-to-br from-card to-background">
                 <Image
                   src="/meraj.jpg"
@@ -231,7 +240,7 @@ export function AboutSection() {
                   style={{ transform: "scaleX(-1)" }}
                   priority
                 />
-                
+
                 {/* Hover overlay effect */}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
                   <motion.div
@@ -267,8 +276,7 @@ export function AboutSection() {
               className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-foreground to-accent bg-clip-text text-transparent"
               variants={itemVariants}
             >
-              Engineering <span className="text-accent">Digital</span>{" "}
-              Solutions
+              Engineering <span className="text-accent">Digital</span> Solutions
             </motion.h3>
 
             <div className="space-y-4 md:space-y-6 text-muted-foreground">
@@ -276,25 +284,53 @@ export function AboutSection() {
                 variants={itemVariants}
                 className="text-base md:text-lg leading-relaxed"
               >
-                As a{" "}
+                Hi, I’m{" "}
+                <span className="font-semibold text-foreground">Meraj</span>, a{" "}
                 <span className="font-semibold text-foreground">
-                  Full Stack Architect
-                </span>
-                , I specialize in building performant, scalable applications
-                using modern JavaScript ecosystems. With a passion for clean code
-                and intuitive user experiences.
+                  Full Stack Developer
+                </span>{" "}
+                passionate about designing and building modern, scalable, and
+                secure web applications. My expertise lies in{" "}
+                <span className="font-semibold text-foreground">
+                  React, Next.js, Node.js, Nest.js, Express, PostgreSQL
+                </span>{" "}
+                and cloud-native technologies like Docker.
               </motion.p>
 
               <motion.p
                 variants={itemVariants}
                 className="text-base md:text-lg leading-relaxed"
               >
-                My approach combines{" "}
+                I love transforming ideas into impactful products with{" "}
                 <span className="font-semibold text-foreground">
-                  technical excellence
+                  clean architecture
+                </span>
+                ,{" "}
+                <span className="font-semibold text-foreground">
+                  optimized performance
+                </span>
+                , and seamless user experiences. With hands-on experience across{" "}
+                <span className="font-semibold text-foreground">
+                  frontend, backend, and database design
+                </span>
+                , I bring end-to-end solutions that balance business goals with
+                technical excellence.
+              </motion.p>
+
+              <motion.p
+                variants={itemVariants}
+                className="text-base md:text-lg leading-relaxed"
+              >
+                Beyond coding, I enjoy{" "}
+                <span className="font-semibold text-foreground">
+                  learning emerging technologies
                 </span>{" "}
-                with product-focused thinking to craft solutions that drive
-                measurable business value and user satisfaction.
+                and contributing to projects that solve real-world challenges.
+                My ultimate goal is to keep growing as a{" "}
+                <span className="font-semibold text-foreground">
+                  problem-solver
+                </span>{" "}
+                while delivering value through technology.
               </motion.p>
             </div>
 

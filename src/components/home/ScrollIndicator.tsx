@@ -46,7 +46,7 @@ const ScrollIndicator = () => {
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          className="fixed bottom-10 right-10 z-50 flex flex-col items-center cursor-pointer"
+          className="fixed bottom-10 right-10 z-40 flex flex-col items-center cursor-pointer"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
