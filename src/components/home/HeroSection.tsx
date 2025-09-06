@@ -306,16 +306,16 @@ export function HeroSection() {
       </AnimatePresence>
 
       {/* Main Content */}
-      <div className="container px-4 md:px-6 max-w-6xl space-y-8 z-20 relative">
+      <div className="container px-4 md:px-6 max-w-6xl space-y-8 z-20 relative pb-16 md:pb-0">
         {/* Vertical Social Links */}
         <motion.div
-          className="absolute bottom-4 md:left-6 md:top-20 md:-translate-y-1/2  lg:flex lg:flex-col items-center gap-8"
+          className="absolute bottom-4 left-12 md:left-6 md:top-20 md:-translate-y-1/2  lg:flex lg:flex-col items-center gap-8"
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.8, duration: 0.7 }}
         >
           <div className=" hidden md:block w-px h-40 bg-gradient-to-b from-accent-primary to-transparent" />
-          <div className="flex lg:flex-col gap-5">
+          <div className="flex md:flex-col gap-5">
             {[
               {
                 icon: <Github size={22} />,
@@ -388,10 +388,6 @@ export function HeroSection() {
                   rotate: 360,
                   scale: [1, 1.1, 1],
                 }}
-                // transition={{
-                //   rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-                //   scale: { duration: 3, repeat: Infinity, ease: "easeInOut" }
-                // }}
               />
             </span>
           </motion.h1>
@@ -458,15 +454,27 @@ export function HeroSection() {
                   ease: "easeInOut",
                 }}
               />
-
-              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light">
-                <TypingEffect
-                  text={`Crafting digital experiences with ${personalInfo.yearsExperience} years of expertise. Specializing in modern full-stack development, I transform ideas into scalable, performant applications that users love.`}
-                  speed={40}
-                  delay={600}
-                />
-                <span className="ml-1 inline-block w-2 h-8 bg-accent-primary animate-pulse rounded-full" />
-              </p>
+<div className="relative">
+  <p className="text-xl md:text-2xl text-foreground leading-relaxed font-light relative z-10">
+    <TypingEffect
+      text={`Crafting digital experiences with ${personalInfo.yearsExperience} years of expertise. Specializing in modern full-stack development, I transform ideas into scalable, performant applications that users love.`}
+      speed={40}
+      delay={600}
+    />
+    <span className="ml-1 inline-block w-2 h-8 bg-accent-primary animate-pulse rounded-full" />
+  </p>
+  <motion.div 
+    className="absolute inset-0 bg-gradient-to-r from-accent-primary/5 to-accent-secondary/5 rounded-xl -z-0"
+    animate={{
+      backgroundPosition: ['0% 0%', '100% 100%'],
+    }}
+    transition={{
+      duration: 10,
+      repeat: Infinity,
+      repeatType: "reverse",
+    }}
+  />
+</div>
             </div>
           </motion.div>
 
