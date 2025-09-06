@@ -1,6 +1,40 @@
 export const projectsData = [
   {
     id: 1,
+    name: "Ejazah.com",
+    overview:
+      "A modern travel agency platform offering seamless flight, hotel, and visa booking services for global travelers.",
+    longDescription: `
+Ejazah.com is a full-featured travel booking platform designed to simplify trip planning. 
+It provides a one-stop solution for booking **flights, hotels, and visas**, ensuring a smooth and hassle-free travel experience.  
+The platform offers secure payments, real-time availability checks, and personalized travel recommendations.  
+
+Our team focused on creating a **user-friendly and responsive frontend** with intuitive navigation, clean UI, and fast performance, 
+making the booking process simple for travelers worldwide.
+    `,
+    thumbnail: "/projects/ejazah/ejazah-thumbnail.png",
+    images: [
+      "/projects/ejazah/ejazah-thumbnail.png",
+      "/projects/ejazah/ejazah-login.png",
+      "/projects/ejazah/ejazah-search.png",
+      "/projects/ejazah/ejazah-flights.png",
+      "/projects/ejazah/ejazah-flight-responsive.png",
+    ],
+    liveDemo: "https://ejazah.com", // replace with actual live link if available
+    githubLink: null, // private repo
+    Technology: [
+      { name: "Next.js" },
+      { name: "Tailwind CSS" },
+      { name: "Shadcn" },
+      { name: "React Query" },
+    ],
+    startDate: "2024-04-01",
+    endDate: "2024-06-30",
+    status: "Completed",
+    featured: true,
+  },
+  {
+    id: 2,
     name: "Her Power",
     overview:
       "A government-backed platform empowering women through education, career guidance, and resources in Bangladesh.",
@@ -31,4 +65,3 @@ Our team successfully completed the **frontend development** using modern techno
     featured: true,
   },
 ];
-1
