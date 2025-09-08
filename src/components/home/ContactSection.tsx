@@ -49,19 +49,19 @@ export function ContactSection() {
   const socialLinks = [
     {
       icon: <Mail className="h-5 w-5" />,
-      href: "mailto:meraj@example.com",
+      href: "mailto:merajhossain15901@gmail.com",
       label: "Email",
       color: "from-blue-500 to-cyan-500",
     },
     {
       icon: <Github className="h-5 w-5" />,
-      href: "https://github.com/meraj",
+      href: "https://github.com/meraj2704",
       label: "GitHub",
       color: "from-purple-500 to-pink-500",
     },
     {
       icon: <Linkedin className="h-5 w-5" />,
-      href: "https://linkedin.com/in/meraj",
+      href: "https://www.linkedin.com/in/meraj-hossain-6566b8231/",
       label: "LinkedIn",
       color: "from-blue-600 to-blue-700",
     },
@@ -71,21 +71,15 @@ export function ContactSection() {
     {
       icon: <Mail className="h-6 w-6" />,
       title: "Email",
-      value: "meraj@example.com",
-      link: "mailto:meraj@example.com",
+      value: "merajhossain15901@gmail.com",
+      link: "mailto:merajhossain15901@gmail.com",
     },
     {
       icon: <Phone className="h-6 w-6" />,
       title: "Phone",
-      value: "+1 (555) 123-4567",
-      link: "tel:+15551234567",
-    },
-    {
-      icon: <MessageCircle className="h-6 w-6" />,
-      title: "Messenger",
-      value: "@meraj.dev",
-      link: "#",
-    },
+      value: "01684088348",
+      link: "tel:01684088348",
+    }
   ];
 
   return (

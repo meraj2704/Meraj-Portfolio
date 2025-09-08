@@ -16,67 +16,75 @@ import {
   BookOpen,
   GraduationCap,
   BadgeCheck,
+  Trophy,
 } from "lucide-react";
 
 // Certification data
 const certifications = [
   {
     id: 1,
-    title: "AWS Certified Solutions Architect - Associate",
-    issuer: "Amazon Web Services (AWS)",
-    date: "December 2023",
-    credentialId: "AWS-ASA-12345",
-    credentialUrl: "https://www.credly.com/users/example/badges",
+    title: "Frontend Developer (React) Certificate",
+    issuer: "HackerRank",
+    date: "August 2024",
+    credentialId: null,
+    credentialUrl: "https://www.hackerrank.com/certificates/iframe/b4d7b6292f7b", // replace with actual if you have
     description:
-      "Validated expertise in designing distributed systems on AWS, including architecture best practices and cost optimization strategies.",
-    skills: [
-      "Cloud Architecture",
-      "AWS Services",
-      "Solution Design",
-      "Security",
-      "Scalability",
-    ],
+      "Certified proficiency in React development, demonstrating the ability to build responsive and interactive frontend applications.",
+    skills: ["React", "Frontend Development", "JavaScript"],
     icon: <BadgeCheck className="h-6 w-6" />,
-    accentColor: "from-amber-500 to-orange-500",
+    accentColor: "from-emerald-500 to-teal-500",
   },
   {
     id: 2,
-    title: "Google Professional Cloud Developer",
-    issuer: "Google Cloud",
-    date: "October 2023",
-    credentialId: "GCP-PCD-67890",
-    credentialUrl: "https://www.credential.net/profile/example",
+    title: "JavaScript (Intermediate) Certificate",
+    issuer: "HackerRank",
+    date: "August 2024",
+    credentialId: null,
+    credentialUrl: "https://www.hackerrank.com/certificates/iframe/a1aa64088fb5", // replace with actual
     description:
-      "Demonstrated ability to build scalable and highly available applications using Google Cloud Practitioner best practices.",
-    skills: [
-      "Google Cloud Platform",
-      "App Development",
-      "Containerization",
-      "CI/CD",
-      "API Development",
-    ],
+      "Validated intermediate-level knowledge of JavaScript, including ES6 features, DOM manipulation, and problem-solving.",
+    skills: ["JavaScript", "Problem Solving", "ES6+", "Frontend Logic"],
     icon: <BookOpen className="h-6 w-6" />,
-    accentColor: "from-blue-500 to-cyan-500",
+    accentColor: "from-yellow-500 to-amber-500",
   },
   {
     id: 3,
-    title: "Microsoft Certified: Azure Developer Associate",
-    issuer: "Microsoft",
-    date: "August 2023",
-    credentialId: "MS-AZ-204-54321",
-    credentialUrl:
-      "https://learn.microsoft.com/en-us/users/example/credentials",
+    title: "Responsive Web Design",
+    issuer: "freeCodeCamp",
+    date: "March 2023",
+    credentialId: null,
+    credentialUrl: "https://www.freecodecamp.org/certification/meraj01/responsive-web-design", // replace with actual
     description:
-      "Proven skills in designing, building, testing, and maintaining cloud applications and services on Microsoft Azure.",
-    skills: [
-      "Azure Services",
-      "Cloud Development",
-      "Storage Solutions",
-      "Security Implementation",
-      "Debugging",
-    ],
-    icon: <GraduationCap className="h-6 w-6" />,
-    accentColor: "from-purple-500 to-indigo-500",
+      "Demonstrated ability to build responsive websites using HTML, CSS, and modern web design practices.",
+    skills: ["HTML5", "CSS3", "Responsive Design", "Accessibility"],
+    icon: <GraduationCap className="h-6 w-6" />, // FCC doesn’t have its own icon
+    accentColor: "from-pink-500 to-rose-500",
+  },
+  {
+    id: 4,
+    title: "SQL (Basic)",
+    issuer: "HackerRank",
+    date: "December 2022",
+    credentialId: null,
+    credentialUrl: "https://www.hackerrank.com/certificates/iframe/39a72c6c8220", // replace with actual
+    description:
+      "Certified in SQL basics, including database queries, filtering, sorting, and simple joins.",
+    skills: ["SQL", "Database Management", "Queries", "Data Analysis"],
+    icon: <BookOpen className="h-6 w-6" />,
+    accentColor: "from-indigo-500 to-sky-500",
+  },
+  {
+    id: 5,
+    title: "ICPC Regional Contest 2021",
+    issuer: "ICPC",
+    date: "October 2022",
+    credentialId: null,
+    credentialUrl: null, // usually contest participation doesn’t have a link
+    description:
+      "Participated in the prestigious ICPC Regional Contest, showcasing algorithmic problem-solving and competitive programming skills.",
+    skills: ["Algorithms", "Data Structures", "Problem Solving", "Teamwork"],
+    icon: <Trophy className="h-6 w-6" />, // best fit for contest achievement
+    accentColor: "from-orange-500 to-red-500",
   },
 ];
 
@@ -300,7 +308,7 @@ export function Certifications() {
                       </ul>
 
                       <motion.a
-                        href={cert.credentialUrl}
+                        href={cert.credentialUrl || ""}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center text-sm font-medium text-accent-primary hover:text-accent-secondary transition-colors mt-2"

@@ -40,7 +40,7 @@ export function ProjectsFilter({
         onChange={(e) => setSearchTerm(e.target.value)}
         className="w-full max-w-xl mx-auto block bg-card border-border text-foreground placeholder:text-muted-foreground"
       />
-      <div className="flex flex-wrap justify-center gap-3">
+      {/* <div className="flex flex-wrap justify-center gap-3">
         {isLoading ? (
           <p>Loading filters...</p>
         ) : (
@@ -71,7 +71,7 @@ export function ProjectsFilter({
             Clear Filters
           </Button>
         )}
-      </div>
+      </div> */}
     </div>
   );
 }

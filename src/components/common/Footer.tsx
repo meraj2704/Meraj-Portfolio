@@ -15,17 +15,17 @@ export function Footer() {
   const socialLinks = [
     {
       icon: <Mail className="h-4 w-4" />,
-      href: "mailto:meraj@example.com",
+      href: "mailto:merajhossain15901@gmail.com",
       label: "Email",
     },
     {
       icon: <Github className="h-4 w-4" />,
-      href: "https://github.com/meraj",
+      href: "https://github.com/meraj2704",
       label: "GitHub",
     },
     {
       icon: <Linkedin className="h-4 w-4" />,
-      href: "https://linkedin.com/in/meraj",
+      href: "https://www.linkedin.com/in/meraj-hossain-6566b8231/",
       label: "LinkedIn",
     },
   ];

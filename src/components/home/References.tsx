@@ -28,66 +28,45 @@ import {
 const references = [
   {
     id: 1,
-    name: "Dr. Evelyn Reed",
-    title: "Director of Innovation",
-    company: "Synapse Labs",
-    relationship: "Strategic Mentor & Collaborator",
-    contact: "e.reed@synapselabs.io",
-    linkedin: "https://linkedin.com/in/evelynreed",
-    location: "San Francisco, CA",
+    name: "Syed Maruful Huq",
+    title: "Assistant Professor",
+    company: "Northern University Bangladesh",
+    relationship: "Academic Mentor & Professor",
+    contact: "maruful@gmail.com",
+    linkedin: null, // add if available
+    location: "Dhaka, Bangladesh",
     testimonial:
-      "A rare blend of analytical rigor and creative fearlessness. They consistently reframed challenges into opportunities, demonstrating ownership far beyond their role. Their work on the 'Nexus-9' project set new standards for our team.",
-    projects: "Nexus-9 Project (2022-2023)",
+      "Guided me throughout my academic journey with valuable mentorship and encouragement. His support played a vital role in shaping my foundation in Computer Science and problem-solving mindset.",
+    projects: "Undergraduate & Research Guidance",
     strengths: [
-      "Technical Vision",
+      "Academic Guidance",
       "Problem Solving",
-      "Leadership",
-      "Innovation",
+      "Research Mentorship",
+      "Technical Knowledge",
     ],
     rating: 5,
-    avatarColor: "from-amber-500 to-orange-500",
+    avatarColor: "from-emerald-500 to-teal-500",
   },
   {
     id: 2,
-    name: "Benjamin Carter",
-    title: "Senior Project Manager",
-    company: "Aether Solutions",
-    relationship: "Direct Supervisor",
-    contact: "ben.carter@aethersolutions.com",
-    linkedin: "https://linkedin.com/in/bencarter",
-    location: "Austin, TX",
+    name: "Mahfuz Islam",
+    title: "Team Lead",
+    company: "ATI Limited",
+    relationship: "Direct Supervisor & Team Lead",
+    contact: null, // add if you want his email/phone
+    linkedin: "https://www.linkedin.com/in/mahfuz-islam1695/", // add if available
+    location: "Dhaka, Bangladesh",
     testimonial:
-      "The definitive team catalyst. Their ability to bridge communication gaps between design, engineering, and stakeholders was instrumental to our project's zero-delay launch. I'd hire them again in a heartbeat.",
-    projects: "Aether Platform (2020-2022)",
+      "As my team lead, Mahfuz bhai has been instrumental in improving my development skills. His expertise in full stack development and leadership qualities created a highly collaborative work environment where I learned industry best practices.",
+    projects: "ATI Limited Projects (Web Applications & APIs)",
     strengths: [
-      "Communication",
+      "Full Stack Development",
+      "Leadership",
       "Teamwork",
-      "Project Management",
-      "Adaptability",
+      "Mentorship",
     ],
     rating: 5,
     avatarColor: "from-blue-500 to-cyan-500",
-  },
-  {
-    id: 3,
-    name: "Professor Aris Thorne",
-    title: "Chair of Data Ethics",
-    company: "University of Northwood",
-    relationship: "Academic Advisor",
-    contact: "aris.thorne@unorthwood.edu",
-    linkedin: "https://linkedin.com/in/aristhorne",
-    location: "Boston, MA",
-    testimonial:
-      "An intellectually curious and ethically grounded mind. Their thesis on algorithmic transparency broke new ground in our department and demonstrated exceptional research capabilities alongside technical prowess.",
-    projects: "Thesis Advisory (2021-2022)",
-    strengths: [
-      "Research Skills",
-      "Ethical Thinking",
-      "Academic Excellence",
-      "Writing",
-    ],
-    rating: 5,
-    avatarColor: "from-purple-500 to-indigo-500",
   },
 ];
 
@@ -354,7 +333,7 @@ export function References() {
                           {ref.contact}
                         </motion.a>
                         <motion.a
-                          href={ref.linkedin}
+                          href={ref.linkedin || ""}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex items-center text-muted-foreground hover:text-foreground transition-colors"
