@@ -20,7 +20,7 @@ making the booking process simple for travelers worldwide.
       "/projects/ejazah/ejazah-flights.png",
       "/projects/ejazah/ejazah-flight-responsive.png",
     ],
-    liveDemo: "https://ejazah.com", // replace with actual live link if available
+    liveDemo: "https://dev.ejazah.com/", // replace with actual live link if available
     githubLink: null, // private repo
     Technology: [
       { name: "Next.js" },
@@ -28,9 +28,9 @@ making the booking process simple for travelers worldwide.
       { name: "Shadcn" },
       { name: "React Query" },
     ],
-    startDate: "2024-04-01",
-    endDate: "2024-06-30",
-    status: "Completed",
+    startDate: "2025-01-01",
+    endDate: "Ongoing",
+    status: "In Progress",
     featured: true,
   },
   {
@@ -58,9 +58,10 @@ This project demonstrates not only technical execution but also real-world adopt
     thumbnail: "/projects/emr/emr-thumbnail.png",
     images: [
       "/projects/emr/emr-thumbnail.png",
-      "/projects/emr/emr-dashboard.png",
-      "/projects/emr/emr-prescription.png",
-      "/projects/emr/emr-patient-history.png",
+      "/projects/emr/emr-rx-with-header.png",
+      "/projects/emr/emr-rx.png",
+      "/projects/emr/emr-medication.png",
+      "/projects/emr/emr-pdf.png",
     ],
     liveDemo: null, // internal healthcare system, not public
     githubLink: null, // private repo
@@ -72,8 +73,8 @@ This project demonstrates not only technical execution but also real-world adopt
       { name: "Express.js" },
       { name: "MongoDB" },
     ],
-    startDate: "2024-02-01",
-    endDate: "2024-04-30",
+    startDate: "2024-06-01",
+    endDate: "2025-01-30",
     status: "Completed",
     featured: true,
   },
@@ -95,7 +96,7 @@ Our team successfully completed the **frontend development** using modern techno
       "/projects/her-power/her-power-shop-now.png",
       "/projects/her-power/her-power-course.png",
     ],
-    liveDemo: null, // if no live demo yet
+    liveDemo: "https://portal.herpower.gov.bd/en", // if no live demo yet
     githubLink: null, // if not public
     Technology: [
       { name: "Next.js" },
@@ -125,12 +126,12 @@ I worked on developing the **backend APIs** for the platform, including:
 
 The backend was built with **Express.js and MongoDB**, ensuring secure data handling, scalability, and smooth integration with the frontend.
     `,
-    thumbnail: "/projects/ati/ati-thumbnail.png",
+    thumbnail: "/projects/ati-limited/ati-limited-thumbnail.png",
     images: [
-      "/projects/ati/ati-thumbnail.png",
-      "/projects/ati/ati-home.png",
-      "/projects/ati/ati-career.png",
-      "/projects/ati/ati-contact.png",
+      "/projects/ati-limited/ati-limited-thumbnail.png",
+      "/projects/ati-limited/ati-home.png",
+      "/projects/ati-limited/ati-about.png",
+      "/projects/ati-limited/ati-blog.png",
     ],
     liveDemo: "https://atilimited.net", // replace with actual live link if needed
     githubLink: null, // private repo
@@ -166,10 +167,11 @@ The site reflects the company’s professionalism while providing visitors with 
     images: [
       "/projects/my-kitchen/my-kitchen-thumbnail.png",
       "/projects/my-kitchen/my-kitchen-home.png",
-      "/projects/my-kitchen/my-kitchen-about.png",
-      "/projects/my-kitchen/my-kitchen-projects.png",
+      "/projects/my-kitchen/my-kitchen-products.png",
+      "/projects/my-kitchen/my-kitchen-image-gallery.png",
+      "/projects/my-kitchen/my-kitchen-product-details.png",
     ],
-    liveDemo: "https://mykitchen.com", // replace with actual link if available
+    liveDemo: "https://www.mykitchen-bd.com/", // replace with actual link if available
     githubLink: null, // private repo
     Technology: [
       { name: "Next.js" },

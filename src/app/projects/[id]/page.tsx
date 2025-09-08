@@ -41,7 +41,7 @@ export default function ProjectDetailsPage() {
           <Button
             asChild
             variant="outline"
-            className="mb-8 border-border/50 text-muted-foreground hover:border-accent-primary hover:text-accent-primary hover:bg-accent-primary/10 transition-all group rounded-lg"
+            className=" border-border/50 text-muted-foreground hover:border-accent-primary hover:text-accent-primary hover:bg-accent-primary/10 transition-all group rounded-lg"
           >
             <Link href="/projects" className="flex items-center gap-2">
               <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />

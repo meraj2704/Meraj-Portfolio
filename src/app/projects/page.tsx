@@ -4,8 +4,10 @@ import { ProjectsFilter } from "@/src/components/projects/ProjectsFilter";
 import { ProjectsGrid } from "@/src/components/projects/ProjectsGrid";
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
+import { ArrowLeft, Sparkles } from "lucide-react";
 import { projectsData } from "@/src/lib/projects-data"; // ✅ local data
+import { Button } from "@/src/components/ui/button";
+import Link from "next/link";
 
 export default function ProjectsPage() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -55,6 +57,22 @@ export default function ProjectsPage() {
       transition={{ duration: 0.5 }}
     >
       <div className="container px-4 md:px-6 max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.1 }}
+        >
+          <Button
+            asChild
+            variant="outline"
+            className=" border-border/50 text-muted-foreground hover:border-accent-primary hover:text-accent-primary hover:bg-accent-primary/10 transition-all group rounded-lg"
+          >
+            <Link href="/" className="flex items-center gap-2">
+              <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+              Back to Home
+            </Link>
+          </Button>
+        </motion.div>
         {/* Header Section */}
         <motion.div
           className="text-center mb-16"
