@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     siteName: `${personalInfo.name} Portfolio`,
     images: [
       {
-        url: "/og-image.png", // replace with your own image
+        url: "/meraj.jpeg", // replace with your own image
         width: 1200,
         height: 630,
         alt: `${personalInfo.name} Portfolio`,
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${personalInfo.name} - ${personalInfo.title}`,
     description: `${personalInfo.name} is a ${personalInfo.title} based in ${personalInfo.location}.`,
-    images: ["/og-image.png"], // replace with your own image
+    images: ["/meraj.jpeg"], // replace with your own image
     creator: "@meraj2704",
   },
 };
