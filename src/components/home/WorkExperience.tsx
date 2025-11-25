@@ -24,7 +24,7 @@ const experiences = [
   {
     id: 1,
     company: "ATI Limited",
-    position: "Junior Frontend Developer",
+    position: "Junior Full Stack Developer",
     duration: "May 2024 - Present",
     location: "Dhaka, Bangladesh",
     description:

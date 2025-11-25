@@ -223,7 +223,7 @@ export function AboutSection() {
 
               <div className="relative rounded-3xl overflow-hidden border border-border/50 shadow-2xl bg-gradient-to-br from-card to-background">
                 <Image
-                  src="/meraj.jpg"
+                  src="/meraj.jpeg"
                   width={600}
                   height={600}
                   alt="Professional developer headshot"
